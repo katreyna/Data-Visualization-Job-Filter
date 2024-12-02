@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 st.title('Data Visualization Job Filter')
+st.subheader('An app created by Sarah Lawler and Kat Reynosa')
 
 dataset = 'https://raw.githubusercontent.com/sarahlawler/DSC205/refs/heads/main/DataScience_salaries_2024.csv'
 df = pd.read_csv(dataset)
@@ -42,7 +43,7 @@ if countries:
 choice = st.selectbox('Select plot to visualize salaries:',
                       ('Histogram - Filtered by Salary and Country',
                        'Pie Chart - Job Distribution by Country',
-                       'Line Plot - Salary Through Time'))
+                       'Line Plot - Average Salary Through Time'))
 if choice == 'Histogram - Filtered by Salary and Country':
     for country in countries:
         country_data = filtered[filtered['company_location'] == country]
@@ -63,7 +64,7 @@ if choice == 'Pie Chart - Job Distribution by Country':
     st.pyplot(plt)
     plt.close()
     
-if choice == 'Line Plot - Salary Through Time':
+if choice == 'Line Plot - Average Salary Through Time':
     filtered = df.loc[(df['salary_in_usd'] >= minSalary) & (df['salary_in_usd'] <= maxSalary)]
     df['work_year'] = pd.to_numeric(df['work_year'], errors = 'coerce')
     if countries:
