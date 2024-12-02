@@ -58,8 +58,8 @@ if choice == 'Pie Chart - Job Distribution by Country':
     if countries:
         filtered = filtered[filtered['company_location'].isin(countries)]
     country_count = filtered['company_location'].value_counts()
-    plt.figure(figsize=(10,7))
-    plt.pie(country_count, labels=country_count.index, autopct='%1.1f%%', colors=sns.color_palette('pastel'))
+    plt.figure(figsize=(15,10))
+    plt.pie(country_count, labels=country_count.index, autopct='%.1f%%', colors=sns.color_palette('pastel'))
     plt.title('Job Distribution by Country')
     st.pyplot(plt)
     plt.close()
