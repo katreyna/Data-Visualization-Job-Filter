@@ -23,9 +23,6 @@ minSalary, maxSalary = st.slider('Select desired salary range:',
                                  step=1000)
 st.write(f'You set {minSalary} as your minimum salary and {maxSalary} as your maximum salary.')
 
-job = st.radio('Full Time or Part Time?', ('Full Time', 'Part Time'))
-st.write(f'You chose {job} jobs.')
-
 # connect location to company location
 
 countries = st.multiselect('Select countries to filter jobs:',
